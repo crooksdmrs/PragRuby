@@ -1,47 +1,5 @@
-class Player
-    def initialize(initial_name, initial_health=100, initial_score=initial_health+initial_name.length)
-        @name = initial_name.capitalize
-        @health = initial_health
-        @score = initial_score
-    end
-
-    attr_accessor :name, :health, :score
-
-    def to_s
-        "#{@name} has #{@health} health and a score of #{score}"
-    end
-
-    def reduce_health
-        @health -= 10
-    end
-
-    def gain_health
-        @health += 10
-    end
-end
-
-class Game
-    def initialize(title)
-        @title = title
-        @players = []
-    end
-
-    attr_accessor :title, :players
-
-    def add_player(player)
-        @players << player
-    end
-
-    def party_heal
-        puts "#{@title}'s Group Heal"
-
-        @players.each do |player|
-            player.gain_health
-            puts player
-        end
-        puts "\n"
-    end
-end
+require_relative 'player'
+require_relative 'game'
 
 
 player1 = Player.new("larry", 60)
